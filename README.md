@@ -1,3 +1,65 @@
+# This is a ROS Wrapper for Intel Realsense Devices.
+Forked from the official Intel Realsense Repo, this repo can be used for D405 cameras and other D400 cameras. 
+
+D405 cameras are officially only compatible with ROS2. Therefore, this ROS 1 wrapper is a forked unofficial version.
+
+# Installation Instructions
+
+
+### Step 1: Install ROS Melodic
+ [ROS Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu) on Ubuntu 18.04
+ 
+### Step 2: Install Intel Realsense SDK
+https://github.com/IntelRealSense/librealsense/blob/v2.50.0/doc/distribution_linux.md
+
+### Step 3: Clone this repo
+Clone this repo into WorkspaceName_ws/src, then catkin build in the main folder
+
+Note: If catkin build doesn't work, you will need to install it here
+```
+sudo apt-get install python3-catkin-tools
+```
+
+### Usage:
+Additional Usage information below.
+
+### Start the camera node
+To start the camera node in ROS:
+
+```bash
+roslaunch realsense2_camera rs_camera.launch
+```
+
+This will stream all camera sensors and publish on the appropriate ROS topics.
+
+Other stream resolutions and frame rates can optionally be provided as parameters to the 'rs_camera.launch' file.
+
+### Published Topics
+The published topics differ according to the device and parameters.
+After running the above command with D435i attached, the following list of topics will be available (This is a partial list. For full one type `rostopic list`):
+- /camera/color/camera_info
+- /camera/color/image_raw
+- /camera/color/metadata
+- /camera/depth/camera_info
+- /camera/depth/image_rect_raw
+- /camera/depth/metadata
+- /camera/extrinsics/depth_to_color
+- /camera/extrinsics/depth_to_infra1
+- /camera/extrinsics/depth_to_infra2
+- /camera/infra1/camera_info
+- /camera/infra1/image_rect_raw
+- /camera/infra2/camera_info
+- /camera/infra2/image_rect_raw
+- /camera/gyro/imu_info
+- /camera/gyro/metadata
+- /camera/gyro/sample
+- /camera/accel/imu_info
+- /camera/accel/metadata
+- /camera/accel/sample
+- /diagnostics
+
+### Below are instructions that come with the official Intel Realsense REPO and include unrelated additional information.
+
 # ROS Wrapper for Intel&reg; RealSense&trade; Devices
 These are packages for using Intel RealSense cameras (D400 series SR300 camera and T265 Tracking Module) with ROS.
 
