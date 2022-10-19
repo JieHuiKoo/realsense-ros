@@ -27,7 +27,7 @@ Additional Usage information below.
 To start the camera node in ROS:
 
 ```bash
-roslaunch realsense2_camera rs_camera.launch
+roslaunch realsense2_camera rs_camera.launch align_depth:=true
 ```
 
 This will stream all camera sensors and publish on the appropriate ROS topics.
