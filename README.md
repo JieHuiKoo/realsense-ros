@@ -50,7 +50,7 @@ We ignore theora and compressed images as they produce output errors due to prop
 
 ### Export rosbag to image
 ```
-rosrun image_view image_saver _encoding:=16UC1 extract_images _sec_per_frame:=0.35 image:=/camera/depth/image_rect_raw
+rosrun image_view image_saver extract_images _sec_per_frame:=0.35 image:=/camera/depth/image_rect_raw
 rosrun image_view image_saver _encoding:=16UC1 extract_images _sec_per_frame:=0.35 image:=/camera/color/image_rect_raw
 ```
 
