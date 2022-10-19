@@ -44,8 +44,9 @@ Afterwards, add camera and depth cloud and select the appropriate topics to list
 
 ### Record to rosbag:
 ```
-rosbag record -a
+rosbag record -a -x "(.*)theora(.*)|(.*)compressed(.*)"
 ```
+We ignore theora and compressed images as they produce output errors due to proprietary format from intel.
 
 ### Export rosbag to image
 ```
