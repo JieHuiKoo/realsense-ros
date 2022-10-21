@@ -27,12 +27,32 @@ Additional Usage information below.
 To start the camera node in ROS:
 
 ```bash
-roslaunch realsense2_camera rs_camera.launch
+roslaunch realsense2_camera rs_camera.launch align_depth:=true
 ```
 
 This will stream all camera sensors and publish on the appropriate ROS topics.
 
 Other stream resolutions and frame rates can optionally be provided as parameters to the 'rs_camera.launch' file.
+
+### Visualise:
+To visualise, start rviz
+```
+rviz
+```
+Under global options > fixed frame, select camera_link
+Afterwards, add camera and depth cloud and select the appropriate topics to listen to.
+
+### Record to rosbag:
+```
+rosbag record -O rosbag.bag -a -x "(.*)theora(.*)|(.*)compressed(.*)"
+```
+We ignore theora and compressed images as they produce output errors due to proprietary format from intel.
+
+### Export rosbag to image
+```
+rosrun image_view image_saver extract_images _sec_per_frame:=0.35 image:=/camera/depth/image_rect_raw
+rosrun image_view image_saver _encoding:=16UC1 extract_images _sec_per_frame:=0.35 image:=/camera/color/image_rect_raw
+```
 
 ### Published Topics
 The published topics differ according to the device and parameters.
