@@ -33,6 +33,13 @@ or:
 ```bash
 roslaunch realsense2_camera rs_multiple_devices.launch 
 ```
+
+To start publishing point clouds:
+```
+roslaunch realsense2_camera rs_rgbd_armCamera.launch
+roslaunch realsense2_camera rs_rgbd_frontCamera.launch
+```
+
 If launching multiple cameras, make sure to check serial number and add it to rs_multiple_devices.launch file!
 
 To check serial number:
